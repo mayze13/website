@@ -1,0 +1,135 @@
+/* Google Font — DM Sans */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
+
+/* ============================================================
+   Beige + Navy Blue theme overrides
+   These CSS custom properties shadow whatever al_folio_core sets.
+   If a variable name doesn't take effect, inspect DevTools under
+   :root to find the exact name the gem uses and add it here.
+   ============================================================ */
+
+:root {
+  /* Palette */
+  --beige:        #f5f0e8;
+  --beige-dark:   #ede8df;
+  --beige-border: #d4cfc5;
+  --navy:         #1a3a5c;
+  --navy-mid:     #2d6a9f;
+  --navy-light:   #4a90c4;
+  --text-main:    #1c1c2e;
+  --text-muted:   #5a5a72;
+
+  /* al-folio core variable overrides */
+  --global-bg-color:          var(--beige);
+  --global-code-bg-color:     var(--beige-dark);
+  --global-text-color:        var(--text-main);
+  --global-text-color-light:  var(--text-muted);
+  --global-theme-color:       var(--navy);
+  --global-hover-color:       var(--navy-mid);
+  --global-hover-text-color:  #ffffff;
+  --global-footer-bg-color:   var(--navy);
+  --global-footer-text-color: var(--beige);
+  --global-footer-link-color: var(--beige-dark);
+  --global-distill-app-color: var(--navy-mid);
+  --global-divider-color:     var(--beige-border);
+  --global-card-bg-color:     var(--beige-dark);
+  --global-border-color:      var(--beige-border);
+  --global-highlight-color:   var(--navy-light);
+
+  /* Font */
+  --global-font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --global-font-size:   16px;
+}
+
+/* ---- Body ---- */
+body {
+  background-color: var(--beige) !important;
+  font-family: var(--global-font-family) !important;
+  color: var(--text-main) !important;
+}
+
+/* ---- Navbar ---- */
+.navbar,
+nav.navbar {
+  background-color: var(--navy) !important;
+}
+
+.navbar .nav-link,
+.navbar-brand,
+.navbar a {
+  color: var(--beige) !important;
+}
+
+.navbar .nav-link:hover,
+.navbar a:hover {
+  color: var(--navy-light) !important;
+}
+
+/* ---- Links ---- */
+a {
+  color: var(--navy) !important;
+}
+
+a:hover {
+  color: var(--navy-mid) !important;
+}
+
+/* ---- Cards / project cards ---- */
+.card {
+  background-color: var(--beige-dark) !important;
+  border-color: var(--beige-border) !important;
+}
+
+/* ---- Footer ---- */
+footer,
+.footer {
+  background-color: var(--navy) !important;
+  color: var(--beige) !important;
+}
+
+footer a,
+.footer a {
+  color: var(--beige-dark) !important;
+}
+
+/* ---- Profile image (circular) ---- */
+.profile img {
+  border: 3px solid var(--navy-mid);
+}
+
+/* ---- Section headings ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--global-font-family);
+  font-weight: 600;
+  color: var(--navy) !important;
+}
+
+/* ---- Tags / badges ---- */
+.badge,
+.tag {
+  background-color: var(--navy) !important;
+  color: var(--beige) !important;
+}
+
+/* ---- Code blocks ---- */
+pre, code {
+  background-color: var(--beige-dark) !important;
+  border-color: var(--beige-border) !important;
+}
+
+/* ---- Particles canvas sits behind all content ---- */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* overridden on canvas itself by particles-init.js */
+}
+
+/* ---- Ensure page content layers above particles ---- */
+body > *:not(#particles-js) {
+  position: relative;
+  z-index: 1;
+}
