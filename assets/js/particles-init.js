@@ -3,34 +3,36 @@ document.addEventListener('DOMContentLoaded', function () {
   container.id = 'particles-js';
   document.body.prepend(container);
 
+  /* Warm tan particles on midnight — visible in the dark margins
+     around the beige content panel. Ambient, no interaction. */
   window.particlesJS('particles-js', {
     particles: {
       number: {
-        value: 80,
+        value: 90,
         density: { enable: true, value_area: 900 }
       },
-      color: { value: '#f5f0e8' },
+      color: { value: '#c8b89a' },
       shape: { type: 'circle' },
       opacity: {
-        value: 0.45,
+        value: 0.55,
         random: true,
-        anim: { enable: true, speed: 0.6, opacity_min: 0.05, sync: false }
+        anim: { enable: true, speed: 0.5, opacity_min: 0.08, sync: false }
       },
       size: {
-        value: 2.5,
+        value: 2.8,
         random: true,
         anim: { enable: false }
       },
       line_linked: {
         enable: true,
-        distance: 130,
-        color: '#f5f0e8',
-        opacity: 0.18,
+        distance: 140,
+        color: '#c8b89a',
+        opacity: 0.22,
         width: 1
       },
       move: {
         enable: true,
-        speed: 1.2,
+        speed: 1.1,
         direction: 'none',
         random: true,
         straight: false,
@@ -42,12 +44,11 @@ document.addEventListener('DOMContentLoaded', function () {
       detect_on: 'window',
       events: {
         onhover: { enable: true, mode: 'grab' },
-        onclick: { enable: true, mode: 'push' },
+        onclick: { enable: false },
         resize: true
       },
       modes: {
-        grab: { distance: 140, line_linked: { opacity: 0.5 } },
-        push: { particles_nb: 4 }
+        grab: { distance: 160, line_linked: { opacity: 0.6 } }
       }
     },
     retina_detect: true
