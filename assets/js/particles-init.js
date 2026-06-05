@@ -1,29 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
-  /* Create the particles container and prepend to body */
   var container = document.createElement('div');
   container.id = 'particles-js';
   document.body.prepend(container);
 
-  /* Initialise particles — click-only, navy blue dots on beige */
   window.particlesJS('particles-js', {
     particles: {
-      number: { value: 0 },
-      color: { value: '#1a3a5c' },
+      number: {
+        value: 80,
+        density: { enable: true, value_area: 900 }
+      },
+      color: { value: '#f5f0e8' },
       shape: { type: 'circle' },
       opacity: {
-        value: 0.55,
+        value: 0.45,
         random: true,
-        anim: { enable: true, speed: 0.8, opacity_min: 0, sync: false }
+        anim: { enable: true, speed: 0.6, opacity_min: 0.05, sync: false }
       },
       size: {
-        value: 5,
+        value: 2.5,
         random: true,
         anim: { enable: false }
       },
-      line_linked: { enable: false },
+      line_linked: {
+        enable: true,
+        distance: 130,
+        color: '#f5f0e8',
+        opacity: 0.18,
+        width: 1
+      },
       move: {
         enable: true,
-        speed: 1.8,
+        speed: 1.2,
         direction: 'none',
         random: true,
         straight: false,
@@ -34,24 +41,18 @@ document.addEventListener('DOMContentLoaded', function () {
     interactivity: {
       detect_on: 'window',
       events: {
-        onhover: { enable: false },
+        onhover: { enable: true, mode: 'grab' },
         onclick: { enable: true, mode: 'push' },
         resize: true
       },
       modes: {
-        push: { particles_nb: 8 }
+        grab: { distance: 140, line_linked: { opacity: 0.5 } },
+        push: { particles_nb: 4 }
       }
     },
     retina_detect: true
   });
 
-  /* The canvas itself needs pointer-events so clicks register */
-  var canvas = document.querySelector('#particles-js canvas');
-  if (canvas) {
-    canvas.style.pointerEvents = 'auto';
-  }
-
-  /* Lift all direct body children above the particles layer */
   Array.prototype.forEach.call(document.body.children, function (el) {
     if (el.id !== 'particles-js') {
       el.style.position = 'relative';
