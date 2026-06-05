@@ -2,39 +2,38 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
 
 /* ============================================================
-   Beige + Navy Blue theme overrides
-   These CSS custom properties shadow whatever al_folio_core sets.
-   If a variable name doesn't take effect, inspect DevTools under
-   :root to find the exact name the gem uses and add it here.
+   Midnight + Beige theme
+   Dark background, warm beige text, gold accents.
    ============================================================ */
 
 :root {
   /* Palette */
-  --beige:        #f5f0e8;
-  --beige-dark:   #ede8df;
-  --beige-border: #d4cfc5;
-  --navy:         #1a3a5c;
-  --navy-mid:     #2d6a9f;
-  --navy-light:   #4a90c4;
-  --text-main:    #1c1c2e;
-  --text-muted:   #5a5a72;
+  --midnight:        #0d0d1f;
+  --midnight-light:  #13132a;
+  --midnight-mid:    #1c1c35;
+  --midnight-border: #252540;
+  --beige:           #f5f0e8;
+  --beige-dim:       #c8b89a;
+  --beige-muted:     #8a7060;
+  --gold:            #c8a96e;
+  --gold-dim:        #a88b52;
 
   /* al-folio core variable overrides */
-  --global-bg-color:          var(--beige);
-  --global-code-bg-color:     var(--beige-dark);
-  --global-text-color:        var(--text-main);
-  --global-text-color-light:  var(--text-muted);
-  --global-theme-color:       var(--navy);
-  --global-hover-color:       var(--navy-mid);
-  --global-hover-text-color:  #ffffff;
-  --global-footer-bg-color:   var(--navy);
-  --global-footer-text-color: var(--beige);
-  --global-footer-link-color: var(--beige-dark);
-  --global-distill-app-color: var(--navy-mid);
-  --global-divider-color:     var(--beige-border);
-  --global-card-bg-color:     var(--beige-dark);
-  --global-border-color:      var(--beige-border);
-  --global-highlight-color:   var(--navy-light);
+  --global-bg-color:           var(--midnight);
+  --global-code-bg-color:      var(--midnight-light);
+  --global-text-color:         var(--beige);
+  --global-text-color-light:   var(--beige-dim);
+  --global-theme-color:        var(--gold);
+  --global-hover-color:        var(--beige);
+  --global-hover-text-color:   var(--midnight);
+  --global-footer-bg-color:    var(--midnight);
+  --global-footer-text-color:  var(--beige-dim);
+  --global-footer-link-color:  var(--beige);
+  --global-distill-app-color:  var(--gold);
+  --global-divider-color:      var(--midnight-border);
+  --global-card-bg-color:      var(--midnight-light);
+  --global-border-color:       var(--midnight-border);
+  --global-highlight-color:    var(--gold);
 
   /* Font */
   --global-font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -43,78 +42,182 @@
 
 /* ---- Body ---- */
 body {
-  background-color: var(--beige) !important;
+  background-color: var(--midnight) !important;
   font-family: var(--global-font-family) !important;
-  color: var(--text-main) !important;
+  color: var(--beige) !important;
 }
 
 /* ---- Navbar ---- */
 .navbar,
 nav.navbar {
-  background-color: var(--navy) !important;
+  background-color: var(--midnight-light) !important;
+  border-bottom: 1px solid var(--midnight-border) !important;
 }
 
 .navbar .nav-link,
 .navbar-brand,
 .navbar a {
   color: var(--beige) !important;
+  letter-spacing: 0.03em;
 }
 
 .navbar .nav-link:hover,
 .navbar a:hover {
-  color: var(--navy-light) !important;
+  color: var(--gold) !important;
+}
+
+.navbar .nav-link.active {
+  color: var(--gold) !important;
 }
 
 /* ---- Links ---- */
 a {
-  color: var(--navy) !important;
+  color: var(--gold) !important;
 }
 
 a:hover {
-  color: var(--navy-mid) !important;
+  color: var(--beige) !important;
+}
+
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--global-font-family);
+  font-weight: 600;
+  color: var(--beige) !important;
 }
 
 /* ---- Cards / project cards ---- */
 .card {
-  background-color: var(--beige-dark) !important;
-  border-color: var(--beige-border) !important;
+  background-color: var(--midnight-light) !important;
+  border-color: var(--midnight-border) !important;
+  color: var(--beige) !important;
+}
+
+.card-title, .card-text {
+  color: var(--beige) !important;
+}
+
+/* ---- Repository cards ---- */
+
+.repo {
+  background-color: var(--midnight-mid) !important;
+  border-color: var(--midnight-border) !important;
+  color: var(--beige) !important;
 }
 
 /* ---- Footer ---- */
 footer,
 .footer {
-  background-color: var(--navy) !important;
-  color: var(--beige) !important;
+  background-color: var(--midnight) !important;
+  color: var(--beige-dim) !important;
+  border-top: 1px solid var(--midnight-border) !important;
 }
 
 footer a,
 .footer a {
-  color: var(--beige-dark) !important;
+  color: var(--beige-dim) !important;
+}
+
+footer a:hover,
+.footer a:hover {
+  color: var(--beige) !important;
 }
 
 /* ---- Profile image (circular) ---- */
 .profile img {
-  border: 3px solid var(--navy-mid);
-}
-
-/* ---- Section headings ---- */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--global-font-family);
-  font-weight: 600;
-  color: var(--navy) !important;
+  border: 2px solid var(--gold);
 }
 
 /* ---- Tags / badges ---- */
 .badge,
 .tag {
-  background-color: var(--navy) !important;
-  color: var(--beige) !important;
+  background-color: var(--midnight-border) !important;
+  color: var(--beige-dim) !important;
+  border: 1px solid var(--midnight-border) !important;
 }
 
 /* ---- Code blocks ---- */
 pre, code {
-  background-color: var(--beige-dark) !important;
-  border-color: var(--beige-border) !important;
+  background-color: var(--midnight-light) !important;
+  border-color: var(--midnight-border) !important;
+  color: var(--beige-dim) !important;
+}
+
+/* ---- Dividers / horizontal rules ---- */
+hr {
+  border-color: var(--midnight-border) !important;
+  opacity: 1;
+}
+
+/* ---- Muted / secondary text ---- */
+
+.post-meta,
+small {
+  color: var(--beige-muted) !important;
+}
+
+/* ---- Tables ---- */
+table {
+  color: var(--beige) !important;
+}
+th {
+  border-color: var(--midnight-border) !important;
+  color: var(--beige-dim) !important;
+}
+td {
+  border-color: var(--midnight-border) !important;
+}
+
+/* ---- Social icons ---- */
+.social a {
+  color: var(--beige-dim) !important;
+}
+.social a:hover {
+  color: var(--gold) !important;
+}
+
+/* ---- CV sections ---- */
+
+/* ---- Short CV on home page ---- */
+.cv-mini h2 {
+  color: var(--gold) !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--midnight-border);
+  padding-bottom: 0.4rem;
+}
+
+.cv-mini ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.cv-mini li {
+  padding: 0.35rem 0;
+  color: var(--beige) !important;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--midnight-border);
+}
+
+.cv-mini li:last-child {
+  border-bottom: none;
+}
+
+.cv-mini .cv-date {
+  color: var(--beige-muted);
+  font-size: 0.8rem;
+  float: right;
+}
+
+.cv-mini .cv-place {
+  color: var(--beige-dim);
+  font-size: 0.82rem;
+  display: block;
 }
 
 /* ---- Particles canvas sits behind all content ---- */
@@ -125,7 +228,7 @@ pre, code {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none; /* overridden on canvas itself by particles-init.js */
+  pointer-events: none;
 }
 
 /* ---- Ensure page content layers above particles ---- */
