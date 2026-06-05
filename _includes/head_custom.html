@@ -1,6 +1,93 @@
-<!-- Custom theme: beige + navy, DM Sans font -->
+<!-- Custom stylesheet -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-<!-- particles.js library (click-to-spawn particles) -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+<!-- Midnight override — inline <style> loads absolutely last in <head>
+     and wins over any !important the Tailwind gem stylesheet sets.
+     --global-bg-color drives al-folio's body background.              -->
+<style>
+  :root {
+    /* Tell al-folio core the bg is midnight */
+    --global-bg-color:           #0d0d1f;
+    --global-text-color:         #f5f0e8;
+    --global-text-color-light:   #c8b89a;
+    --global-theme-color:        #c8a96e;
+    --global-footer-bg-color:    #0d0d1f;
+    --global-footer-text-color:  #f5f0e8;
+    --global-footer-link-color:  #c8b89a;
+    --global-card-bg-color:      #13132a;
+    --global-border-color:       #1e1e36;
+    --global-code-bg-color:      #13132a;
+    --global-divider-color:      #1e1e36;
+    --global-highlight-color:    #c8a96e;
+  }
+
+  html, body {
+    background-color: #0d0d1f !important;
+  }
+
+  /* Navbar */
+  .navbar, nav.navbar {
+    background-color: #08081a !important;
+    border-bottom: 1px solid #1e1e36 !important;
+  }
+  .navbar .nav-link, .navbar-brand, .navbar a {
+    color: #f5f0e8 !important;
+  }
+  .navbar .nav-link:hover, .navbar a:hover,
+  .navbar .nav-link.active { color: #c8a96e !important; }
+
+  /* Footer */
+  footer, .footer {
+    background-color: #0d0d1f !important;
+    color: #c8b89a !important;
+    border-top: 1px solid #1e1e36 !important;
+  }
+  footer a, .footer a { color: #c8b89a !important; }
+
+  /* Beige content panel */
+  .page-content { background-color: transparent !important; position: relative; z-index: 1; }
+
+  .page-content .container-md,
+  .page-content .container,
+  div.about,
+  main > .container-md,
+  main > .container {
+    background: rgba(245, 240, 232, 0.95) !important;
+    border-radius: 14px !important;
+    padding: 2.5rem 3rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.6) !important;
+    color: #1c1c2e !important;
+  }
+
+  .page-content h1, .page-content h2,
+  .page-content h3, .page-content h4,
+  .page-content h5, .page-content h6 { color: #1a3a5c !important; }
+
+  .page-content a { color: #1a3a5c !important; }
+  .page-content a:hover { color: #2d6a9f !important; }
+
+  .page-content p, .page-content li,
+  .page-content td, .page-content th,
+  .page-content span { color: #1c1c2e !important; }
+
+  h1.post-title, .post-title, .profile h1 {
+    font-weight: 300 !important;
+    color: #1a3a5c !important;
+  }
+
+  /* Particles canvas — behind everything */
+  #particles-js {
+    position: fixed !important;
+    top: 0 !important; left: 0 !important;
+    width: 100% !important; height: 100% !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+</style>
+
+<!-- particles.js — load synchronously so particlesJS() is available
+     before the deferred init script runs                              -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="{{ '/assets/js/particles-init.js' | relative_url }}" defer></script>
